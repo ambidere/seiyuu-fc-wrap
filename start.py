@@ -1,5 +1,5 @@
 from optparse import OptionParser
-from os.path import exists, isfile, dirname, join
+from os.path import exists, dirname, join
 from os import walk, mkdir
 import shutil
 import face_recognition
@@ -39,7 +39,7 @@ def get_files_from_folder(folder, recursive):
     if len(no_faces) > 0:
         dumps_folder = join(folder, 'no_face_dumps')
         print "%d images without faces detected. Moving them to %s" % (len(no_faces), dumps_folder)
-        if not exists(dumps_folder):gi
+        if not exists(dumps_folder):
             mkdir(dumps_folder)
         for file_name, file_path in no_faces:
             shutil.move(file_path, join(dumps_folder, file_name))
